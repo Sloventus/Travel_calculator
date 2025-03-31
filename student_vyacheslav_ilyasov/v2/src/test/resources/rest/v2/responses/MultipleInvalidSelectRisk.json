@@ -1,0 +1,17 @@
+{
+  "errors": [
+    {
+      "errorCode": "ERROR_CODE_5",
+      "description": "[Risk Type ic = {invalid2} not supported!]"
+    },
+    {
+      "errorCode": "ERROR_CODE_5",
+      "description": "[Risk Type ic = {invalid} not supported!]"
+    }
+  ],
+  "agreementDateFrom": null,
+  "agreementDateTo": null,
+  "country": null,
+  "agreementPremium": null,
+  "persons": null
+}

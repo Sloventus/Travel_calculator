@@ -1,0 +1,94 @@
+plugins {
+	id 'org.springframework.boot' version "3.2.5"
+	id 'maven-publish'
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+	implementation('mysql:mysql-connector-java:8.0.22')
+	implementation('org.hibernate:hibernate-core:6.5.0.Final')
+	implementation ('org.liquibase:liquibase-core:4.27.0')
+	implementation('com.h2database:h2:2.2.224')
+
+
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa:3.2.5')
+
+	implementation('org.springframework.boot:spring-boot-starter-web:3.2.5')
+
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5')
+
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.0'
+	implementation('com.fasterxml.jackson.core:jackson-core:2.14.2')
+	implementation group: 'com.google.guava', name: 'guava', version: '33.4.0-jre'
+
+	implementation 'org.slf4j:slf4j-api:1.7.36'
+	implementation 'ch.qos.logback:logback-classic:1.4.12'
+
+	compileOnly 'org.projectlombok:lombok:1.18.36'
+	annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+
+	testCompileOnly('org.projectlombok:lombok:1.18.32')
+	testAnnotationProcessor('org.projectlombok:lombok:1.18.32')
+
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.4.2'
+
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.4'
+
+	implementation group: 'uk.org.webcompere', name: 'model-assert', version: '1.1.0'
+
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+
+	testImplementation('org.springframework.boot:spring-boot-starter-test:3.2.5')
+
+	testImplementation('com.h2database:h2:2.2.224')
+
+	test {
+		useJUnitPlatform()
+	}
+
+}
+
+jar {
+	enabled = false
+}
+
+bootJar {
+	enabled = true
+	archiveBaseName = 'insurance-calculator'
+	archiveVersion = '1.0.0'
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			// Identify the artifact
+			artifact bootJar  // This refers to the Spring Boot's bootJar task
+
+			// Project coordinates
+			groupId = 'org.javaguru'
+			artifactId = 'insurance-calculator'
+			version = '1.0.0'
+
+			// Add other metadata as needed
+			pom {
+				name = 'Insurance Calculator Application'
+				description = 'Application to calculate travel insurance premium'
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+			}
+		}
+	}
+
+	// Configure the repository location (local Maven repository)
+	repositories {
+		mavenLocal()
+	}
+}

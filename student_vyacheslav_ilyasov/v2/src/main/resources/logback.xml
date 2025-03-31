@@ -1,0 +1,61 @@
+<configuration>
+
+    <!-- Аппендер для вывода логов в консоль -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    json appender-->
+    <appender name="request_response" class="ch.qos.logback.core.FileAppender">
+        <file>${LOGS}/request-response-logger.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/application-logger-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+
+    <!-- Общий аппендер для всех других логов -->
+    <appender name="FILE_GENERAL" class="ch.qos.logback.core.FileAppender">
+        <file>${LOGS}/application-logger.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGS}/archived/application-logger-%d{yyyy-MM-dd}.%i.log
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+    </appender>
+
+
+<!--    логер для аоп-->
+    <logger name="org.javaguru.travel.insurance.aop.FileLoggerRequestResponse"
+            level="INFO">
+        <appender-ref ref="request_response" />
+    </logger>
+
+
+    <!-- Корневой логгер -->
+    <root level="INFO">
+        <appender-ref ref="FILE_GENERAL" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>

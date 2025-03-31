@@ -1,0 +1,13 @@
+{
+  "agreementDateFrom": "2021-05-21",
+  "agreementDateTo": "2021-05-29",
+  "agreementPremium": 30.80,
+  "errors": null,
+  "personFirstName": "Vasja",
+  "personLastName": "Pupkin",
+  "risks": [{"riskIc":"TRAVEL_MEDICAL","premium":30.80}],
+  "country": "JAPAN",
+  "birthDate" : "1991-05-29",
+  "medicalRiskLimitLevel" : "LEVEL_10000",
+  "personCode" : "qwer1234"
+}

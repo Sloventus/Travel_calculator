@@ -1,0 +1,37 @@
+{
+  "errors": null,
+  "agreementDateFrom": "2025-05-25",
+  "agreementDateTo": "2025-05-29",
+  "country": "SPAIN",
+  "agreementPremium": 26.00,
+  "persons": [
+    {
+      "personFirstName": "Vasja",
+      "personLastName": "Pupkin",
+      "birthDate": "2000-05-29",
+      "medicalRiskLimitLevel" : "LEVEL_10000",
+      "personPremium": 11.00,
+      "risks": [
+        {
+          "riskIc": "TRAVEL_MEDICAL",
+          "premium": 11.00
+        }
+      ],
+      "personCode" : "qwer1234"
+    },
+    {
+      "personFirstName": "Petja",
+      "personLastName": "Pupkin",
+      "birthDate": "1950-02-28",
+      "medicalRiskLimitLevel" : "LEVEL_10000",
+      "personPremium": 15.00,
+      "risks": [
+        {
+          "riskIc": "TRAVEL_MEDICAL",
+          "premium": 15.00
+        }
+      ],
+      "personCode" : "qwer12341"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "agreementDateFrom" : "2025-05-25",
+  "agreementDateTo" : "2025-05-29",
+
+  "selectedRisks":["TRAVEL_MEDICAL"],
+  "persons" : [
+        {
+          "personFirstName" : "Vasja",
+          "personLastName" : "Pupkin",
+          "medicalRiskLimitLevel" : "LEVEL_10000",
+          "birthDate" : "2000-05-29",
+          "personCode" : "qwer1234"
+        },
+        {
+          "personFirstName" : "Petja",
+          "personLastName" : "Pupkin",
+          "medicalRiskLimitLevel" : "LEVEL_20000",
+          "birthDate" : "1950-02-29",
+          "personCode" : "qwer12341"
+        }
+  ]
+}
